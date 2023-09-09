@@ -9,1023 +9,378 @@
     filter "system:windows"
          systemversion "latest"
          staticruntime "On"
+         runtime "Release"
 
     files
     {
-        --include directory
-        "%{prj.name}/include/**.h",
+        --INCLUDE DIRECTORY
+        "%{prj.name}/include/SDL3/**.h",
 
---/////////////////////////////////////////////////////
---SRC MAIN DIRECTORY 
+        --/////////////////////////////////////////////////////
+        --SRC DIRECTORY 
+        "%{prj.name}/src/core/windows/pch.c",
 
-        --src file main directory
-        "%{prj.name}/src/**.c",
-        "%{prj.name}/src/**.h",
+        "%{prj.name}/src/guid.c",
 
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/atomic/atomic.c",
 
+        "%{prj.name}/src/atomic/SDL_spinlock.c",
 
---//////////////////////////////////////////////////////
---VIDEO DIRECTORY 
+        "%{prj.name}/src/audio/directsound/SDL_directsound.c",
 
+        "%{prj.name}/src/audio/disk/SDL_diskaudio.c",
 
-        --src video folder main directory
-        "%{prj.name}/src/video/**.c",
-        "%{prj.name}/src/video/**.h",
+        "%{prj.name}/src/audio/dummy/SDL_dummyaudio.c",
 
-        --src video folder Android directory
-        "%{prj.name}/src/video/android/**.c",
-        "%{prj.name}/src/video/android/**.h",
-        
+        "%{prj.name}/src/audio/SDL_audio.c",
 
-        --src video folder arm directory
-        --"%{prj.name}/src/video/arm/**.S",
-        --"%{prj.name}/src/video/arm/**.h",
+        "%{prj.name}/src/audio/SDL_audiocvt.c",
 
-        --src video folder cocoa directory
-        --"%{prj.name}/src/video/cocoa/**.m",
-        "%{prj.name}/src/video/cocoa/**.h",
+        "%{prj.name}/src/audio/SDL_audiodev.c",
 
+        "%{prj.name}/src/audio/SDL_audiotypecvt.c",
 
-        --src video folder dummy directory
-        "%{prj.name}/src/video/dummy/**.c",
-        "%{prj.name}/src/video/dummy/**.h",
+        "%{prj.name}/src/audio/SDL_mixer.c",
 
+        "%{prj.name}/src/audio/SDL_wave.c",
 
-        --src video folder emscripten directory
-        "%{prj.name}/src/video/emscripten/**.c",
-        "%{prj.name}/src/video/emscripten/**.h",
+        "%{prj.name}/src/audio/wasapi/SDL_wasapi.c",
 
+        "%{prj.name}/src/audio/wasapi/SDL_wasapi_win32.c",
 
-        --src video folder gdk directory
-        "%{prj.name}/src/video/gdk/**.cpp",
-        "%{prj.name}/src/video/gdk/**.h",
+        "%{prj.name}/src/core/windows/SDL_hid.c",
 
+        "%{prj.name}/src/core/windows/SDL_immdevice.c",
 
-        --src video folder haiku directory
-        "%{prj.name}/src/video/haiku/**.cc",
-        "%{prj.name}/src/video/haiku/**.h",
+        "%{prj.name}/src/core/windows/SDL_windows.c",
 
-        --src video folder khronos directory
-        "%{prj.name}/src/video/khronos/EGL/**.h",
-        "%{prj.name}/src/video/khronos/GLES2/**.h",
-        "%{prj.name}/src/video/khronos/KHR/**.h",
-        "%{prj.name}/src/video/khronos/vulkan/**.h",
-        
+        "%{prj.name}/src/core/windows/SDL_xinput.c",
 
-        --src video folder khronos directory
-        "%{prj.name}/src/video/kmsdrm/**.c",
-        "%{prj.name}/src/video/kmsdrm/**.h",
+        "%{prj.name}/src/cpuinfo/SDL_cpuinfo.c",
 
+        "%{prj.name}/src/events/SDL_clipboardevents.c",
 
-        --src video folder n3ds directory
-        "%{prj.name}/src/video/n3ds/**.c",
-        "%{prj.name}/src/video/n3ds/**.h",
+        "%{prj.name}/src/events/SDL_displayevents.c",
 
-        --src video folder ngage directory
-        "%{prj.name}/src/video/ngage/**.cpp",
-        "%{prj.name}/src/video/ngage/**.h",
-        
-        --src video folder offscreen directory
-        "%{prj.name}/src/video/offscreen/**.c",
-        "%{prj.name}/src/video/offscreen/**.h",
+        "%{prj.name}/src/events/SDL_dropevents.c",
 
-        --src video folder ps2 directory
-        "%{prj.name}/src/video/ps2/**.c",
-        "%{prj.name}/src/video/ps2/**.h",
+        "%{prj.name}/src/events/SDL_events.c",
 
+        "%{prj.name}/src/events/SDL_keyboard.c",
 
-        --src video folder psp directory
-        "%{prj.name}/src/video/psp/**.c",
-        "%{prj.name}/src/video/psp/**.h",
+        "%{prj.name}/src/events/SDL_mouse.c",
 
-        --src video folder qnx directory
-        "%{prj.name}/src/video/qnx/**.c",
-        "%{prj.name}/src/video/qnx/**.h",
+        "%{prj.name}/src/events/SDL_quit.c",
 
-        --src video folder raspberry directory
-        "%{prj.name}/src/video/raspberry/**.c",
-        "%{prj.name}/src/video/raspberry/**.h",
+        "%{prj.name}/src/events/SDL_touch.c",
 
-        --src video folder riscos directory
-        "%{prj.name}/src/video/riscos/**.c",
-        "%{prj.name}/src/video/riscos/**.h",
+        "%{prj.name}/src/events/SDL_windowevents.c",
 
+        "%{prj.name}/src/file/SDL_rwops.c",
 
-        --src video folder uikit directory
-        --"%{prj.name}/src/video/uikit/**.m",
-        --"%{prj.name}/src/video/uikit/**.h",
+        "%{prj.name}/src/filesystem/windows/SDL_sysfilesystem.c",
 
-        --src video folder vita directory
-        "%{prj.name}/src/video/vita/**.c",
-        "%{prj.name}/src/video/vita/**.h",
+        "%{prj.name}/src/haptic/dummy/SDL_syshaptic.c",
 
-        --src video folder vivante directory
-        "%{prj.name}/src/video/vivante/**.c",
-        "%{prj.name}/src/video/vivante/**.h",
+        "%{prj.name}/src/haptic/SDL_haptic.c",
 
-        --src video folder wayland directory
-        "%{prj.name}/src/video/wayland/**.c",
-        "%{prj.name}/src/video/wayland/**.h",
+        "%{prj.name}/src/haptic/windows/SDL_dinputhaptic.c",
 
+        "%{prj.name}/src/haptic/windows/SDL_windowshaptic.c",
 
-        --src video folder windows directory
-        "%{prj.name}/src/video/windows/**.c",
-        "%{prj.name}/src/video/windows/**.h",
+        "%{prj.name}/src/haptic/windows/SDL_xinputhaptic.c",
 
+        "%{prj.name}/src/hidapi/SDL_hidapi.c",
 
-        --src video folder winrt directory
-        "%{prj.name}/src/video/winrt/**.h",
-        "%{prj.name}/src/video/winrt/**.c",
-        "%{prj.name}/src/video/winrt/**.cpp",
+        "%{prj.name}/src/joystick/controller_type.c",
 
-        --src video folder x11 directory
-        --"%{prj.name}/src/video/x11/**.m",
-        --"%{prj.name}/src/video/x11/**.h",
+        "%{prj.name}/src/joystick/dummy/SDL_sysjoystick.c",
 
-        --src video folder yuv2rgb directory
-        "%{prj.name}/src/video/yuv2rgb/**.c",
-        "%{prj.name}/src/video/yuv2rgb/**.h",
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapijoystick.c",
 
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_combined.c",
 
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_gamecube.c",
 
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_luna.c",
 
---//////////////////////////////////////////////////////
---TIMER DIRECTORY
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_ps3.c",
 
-        --src timer folder main directory
-        "%{prj.name}/src/timer/**.c",
-        "%{prj.name}/src/timer/**.h",
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_ps4.c",
 
-        --src timer folder dummy directory
-        "%{prj.name}/src/timer/dummy/**.c",
-        
-        --src timer folder haiku directory
-        "%{prj.name}/src/timer/haiku/**.c",
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_ps5.c",
 
-        --src timer folder n3ds directory
-        "%{prj.name}/src/timer/n3ds/**.c",
-        
-        --src timer folder ngage directory
-        "%{prj.name}/src/timer/ngage/**.cpp",
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_rumble.c",
 
-        --src timer folder ps2 directory
-        "%{prj.name}/src/timer/ps2/**.c",
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_shield.c",
 
-        --src timer folder psp directory
-        "%{prj.name}/src/timer/psp/**.c",
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_stadia.c",
 
-        --src timer folder unix directory
-        "%{prj.name}/src/timer/unix/**.c",
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_steam.c",
 
-        --src timer folder vita directory
-        "%{prj.name}/src/timer/vita/**.c",
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_switch.c",
 
-        --src timer folder windows directory
-        "%{prj.name}/src/timer/windows/**.c",
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_wii.c",
 
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_xbox360.c",
 
---//////////////////////////////////////////////////////
---THREAD DIRECTORY
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_xbox360w.c",
 
-       --src thread main directory
-       "%{prj.name}/src/thread/**.c",
-       "%{prj.name}/src/thread/**.h",
+        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_xboxone.c",
 
-       --src thread generic directory
-       "%{prj.name}/src/thread/generic/**.c",
-       "%{prj.name}/src/thread/generic/**.h",
-       
-       --src thread n3ds directory
-       "%{prj.name}/src/thread/n3ds/**.c",
-       "%{prj.name}/src/thread/n3ds/**.h",
+        "%{prj.name}/src/joystick/SDL_gamepad.c",
 
+        "%{prj.name}/src/joystick/SDL_joystick.c",
 
-       --src thread ngage directory
-       "%{prj.name}/src/thread/ngage/**.cpp",
-       "%{prj.name}/src/thread/ngage/**.h",
+        "%{prj.name}/src/joystick/virtual/SDL_virtualjoystick.c",
 
-       --src thread ps2 directory
-       "%{prj.name}/src/thread/ps2/**.cpp",
-       "%{prj.name}/src/thread/ps2  /**.h",
+        "%{prj.name}/src/joystick/windows/SDL_dinputjoystick.c",
 
+        "%{prj.name}/src/joystick/windows/SDL_rawinputjoystick.c",
 
-       --src thread psp directory
-       "%{prj.name}/src/thread/psp/**.c",
-       "%{prj.name}/src/thread/psp/**.h",
+        "%{prj.name}/src/joystick/windows/SDL_windowsjoystick.c",
 
-       --src thread pthread directory
-       "%{prj.name}/src/thread/pthread/**.c",
-       "%{prj.name}/src/thread/pthread/**.h",
+        "%{prj.name}/src/joystick/windows/SDL_windows_gaming_input.c",
 
-       --src thread stdcpp directory
-       "%{prj.name}/src/thread/stdcpp/**.cpp",
-       "%{prj.name}/src/thread/stdcpp/**.h" ,
-       
-       --src thread vita directory
-       "%{prj.name}/src/thread/vita/**.c",
-       "%{prj.name}/src/thread/vita/**.h",
+        "%{prj.name}/src/joystick/windows/SDL_xinputjoystick.c",
 
-       --src thread windows directory
-       "%{prj.name}/src/thread/windows/**.c",
-       "%{prj.name}/src/thread/windows/**.h",
+        "%{prj.name}/src/libm/e_atan2.c",
 
---//////////////////////////////////////////////////////
- --TEST DIRECTORY 
+        "%{prj.name}/src/libm/e_exp.c",
 
-       --src test main directory
-       "%{prj.name}/src/test/**.c",
+        "%{prj.name}/src/libm/e_fmod.c",
 
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/libm/e_log.c",
 
+        "%{prj.name}/src/libm/e_log10.c",
 
+        "%{prj.name}/src/libm/e_rem_pio2.c",
 
---//////////////////////////////////////////////////////
---STDLIB DIRECTORY
+        "%{prj.name}/src/libm/e_sqrt.c",
 
-       --src test main directory
-       "%{prj.name}/src/stdlib/**.c",
+        "%{prj.name}/src/libm/k_cos.c",
 
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/libm/k_rem_pio2.c",
 
+        "%{prj.name}/src/libm/k_sin.c",
 
+        "%{prj.name}/src/libm/k_tan.c",
 
---//////////////////////////////////////////////////////
---SENSOR DIRECTORY
+        "%{prj.name}/src/libm/s_atan.c",
 
-       --src sensor main directory
-       "%{prj.name}/src/sensor/**.c",
-       "%{prj.name}/src/sensor/**.h",
+        "%{prj.name}/src/libm/s_copysign.c",
 
+        "%{prj.name}/src/libm/s_cos.c",
 
-       --src sensor android directory
-       "%{prj.name}/src/sensor/android/**.c",
-       "%{prj.name}/src/sensor/android/**.h",
+        "%{prj.name}/src/libm/s_fabs.c",
 
-       --src sensor coremotion directory
-       --"%{prj.name}/src/sensor/coremotion/**.m",
-       "%{prj.name}/src/sensor/coremotion/**.h", 
-       
-       --src sensor dummy directory
-       "%{prj.name}/src/sensor/dummy/**.c",
-       "%{prj.name}/src/sensor/dummy/**.h",
+        "%{prj.name}/src/libm/s_floor.c",
 
-       --src sensor n3ds directory
-       "%{prj.name}/src/sensor/n3ds/**.c",
+        "%{prj.name}/src/libm/s_modf.c",
 
-       --src sensor vita directory
-       "%{prj.name}/src/sensor/vita/**.c",
-       "%{prj.name}/src/sensor/vita/**.h",
+        "%{prj.name}/src/libm/s_scalbn.c",
 
-       --src sensor windows directory
-       "%{prj.name}/src/sensor/windows/**.c",
-       "%{prj.name}/src/sensor/windows/**.h",
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/libm/s_sin.c",
 
+        "%{prj.name}/src/libm/s_tan.c",
 
+        "%{prj.name}/src/loadso/windows/SDL_sysloadso.c",
 
---//////////////////////////////////////////////////////
---RENDER DIRECTORY 
+        "%{prj.name}/src/locale/SDL_locale.c",
 
+        "%{prj.name}/src/locale/windows/SDL_syslocale.c",
 
-       --src render main directory
-       "%{prj.name}/src/render/**.c",
-       "%{prj.name}/src/render/**.h",
+        "%{prj.name}/src/misc/SDL_url.c",
 
+        "%{prj.name}/src/power/SDL_power.c",
 
-        --src render main directory
-        "%{prj.name}/src/render/direct3d/**.c",
-        "%{prj.name}/src/render/direct3d/**.h",
-        
-        --src render direct3d11 directory
-        "%{prj.name}/src/render/direct3d11/**.cpp",
-        "%{prj.name}/src/render/direct3d11/**.c",
-        "%{prj.name}/src/render/direct3d11/**.h",
+        "%{prj.name}/src/power/windows/SDL_syspower.c",
 
-        --src render direct3d12 directory
-        "%{prj.name}/src/render/direct3d12/**.cpp",
-        "%{prj.name}/src/render/direct3d12/**.c",
-        "%{prj.name}/src/render/direct3d12/**.h",
+        "%{prj.name}/src/render/direct3d11/SDL_shaders_d3d11.c",
 
-        --src render metal directory
-        --"%{prj.name}/src/render/metal/**.m",
-        --"%{prj.name}/src/render/metal/**.metal",
-        "%{prj.name}/src/render/metal/**.h",
+        "%{prj.name}/src/render/direct3d11/SDL_render_d3d11.c",
 
-        --src render opengl directory
-        "%{prj.name}/src/render/opengl/**.c",
-        "%{prj.name}/src/render/opengl/**.h",
+        "%{prj.name}/src/render/direct3d12/SDL_shaders_d3d12.c",
 
-        --src render opengles2   directory
-        "%{prj.name}/src/render/opengles2/**.c",
-        "%{prj.name}/src/render/opengles2/**.h",
+        "%{prj.name}/src/render/direct3d12/SDL_render_d3d12.c",
 
-        --src render ps2 directory
-        "%{prj.name}/src/render/ps2/**.c",
+        "%{prj.name}/src/render/direct3d/SDL_render_d3d.c",
 
+        "%{prj.name}/src/render/direct3d11/SDL_shaders_d3d.c",
 
-        --src render psp directory
-        "%{prj.name}/src/render/psp/**.c",
+        "%{prj.name}/src/render/opengl/SDL_render_gl.c",
 
-        --src render software directory
-        "%{prj.name}/src/render/software/**.c",
-        "%{prj.name}/src/render/software/**.h",
+        "%{prj.name}/src/render/opengl/SDL_shaders_gl.c",
 
+        "%{prj.name}/src/render/opengles2/SDL_render_gles2.c",
 
-        --src render vitagxm directory
-        "%{prj.name}/src/render/vitagxm/**.c",
-        "%{prj.name}/src/render/vitagxm/**.h",
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/render/SDL_d3dmath.c",
 
+        "%{prj.name}/src/render/SDL_render.c",
 
+        "%{prj.name}/src/render/software/SDL_blendfillrect.c",
 
+        "%{prj.name}/src/render/software/SDL_blendline.c",
 
---//////////////////////////////////////////////////////
---POWER DIRECTORY 
+        "%{prj.name}/src/render/software/SDL_blendpoint.c",
 
+        "%{prj.name}/src/render/software/SDL_drawline.c",
 
-        --src power main directory
-        "%{prj.name}/src/power/**.c",
-        "%{prj.name}/src/power/**.h",
+        "%{prj.name}/src/render/software/SDL_drawpoint.c",
 
+        "%{prj.name}/src/render/software/SDL_render_sw.c",
 
-        --src power android directory
-        "%{prj.name}/src/power/android/**.c",
+        "%{prj.name}/src/render/software/SDL_rotate.c",
 
-        --src power emscripten directory
-        "%{prj.name}/src/power/emscripten/**.c",
+        "%{prj.name}/src/render/software/SDL_triangle.c",
 
+        "%{prj.name}/src/SDL.c",
 
-        --src power haiku directory
-        "%{prj.name}/src/power/haiku/**.c",
+        "%{prj.name}/src/SDL_assert.c",
 
-        --src power linux directory
-        "%{prj.name}/src/power/linux/**.c",
+        "%{prj.name}/src/SDL_list.c",
 
-        --src power macos directory
-        "%{prj.name}/src/power/macos/**.c",
+        "%{prj.name}/src/SDL_hints.c",
 
+        "%{prj.name}/src/SDL_log.c",
 
-        --src power n3ds directory
-        "%{prj.name}/src/power/n3ds/**.c",
+        "%{prj.name}/src/sensor/dummy/dummysensor.c",
 
+        "%{prj.name}/src/sensor/SDL_sensor.c",
 
-        --src power psp directory
-        "%{prj.name}/src/power/psp/**.c",
+        "%{prj.name}/src/stdlib/SDL_crc16.c",
 
+        "%{prj.name}/src/stdlib/SDL_crc32.c",
 
-        --src power uikit directory
-        --"%{prj.name}/src/power/uikit/**.m",
-        "%{prj.name}/src/power/uikit/**.h",
+        "%{prj.name}/src/stdlib/SDL_getenv.c",
 
-        --src power vita directory
-        "%{prj.name}/src/power/vita/**.c",
+        "%{prj.name}/src/stdlib/SDL_iconv.c",
 
-        --src power windows directory
-        "%{prj.name}/src/power/windows/**.c",
+        "%{prj.name}/src/stdlib/SDL_malloc.c",
 
+        "%{prj.name}/src/stdlib/SDL_mslibc.c",
 
-        --src power winrt directory
-        "%{prj.name}/src/power/winrt/**.cpp",
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/stdlib/SDL_qsort.c",
 
+        "%{prj.name}/src/stdlib/SDL_stdlib.c",
 
---//////////////////////////////////////////////////////
---MISC DIRECTORY 
+        "%{prj.name}/src/stdlib/SDL_string.c",
 
-        --src misc. main directory
-        "%{prj.name}/src/misc/**.c",
-        "%{prj.name}/src/misc/**.h",
+        "%{prj.name}/src/stdlib/SDL_strtokr.c",
 
+        "%{prj.name}/src/thread/generic/SDL_syscond.c",
 
-        --src misc android directory
-        "%{prj.name}/src/misc/android/**.c",
+        "%{prj.name}/src/thread/generic/SDL_sysrwlock.c",
 
+        "%{prj.name}/src/thread/SDL_thread.c",
 
-        --src misc dummy directory
-        "%{prj.name}/src/misc/dummy/**.c",
+        "%{prj.name}/src/thread/windows/SDL_syscond_cv.c",
 
-        --src misc emscripten directory
-        "%{prj.name}/src/misc/emscripten/**.c",
+        "%{prj.name}/src/thread/windows/SDL_sysmutex.c",
 
+        "%{prj.name}/src/thread/windows/SDL_sysrwlock_srw.c",
 
-        --src misc haiku directory
-        "%{prj.name}/src/misc/haiku/**.cc",
+        "%{prj.name}/src/thread/windows/SDL_syssem.c",
 
+        "%{prj.name}/src/thread/windows/SDL_systhread.c",
 
-        --src misc ios directory
-        --"%{prj.name}/src/misc/ios/**.m",
+        "%{prj.name}/src/thread/windows/SDL_systls.c",
 
-        --src misc macos directory
-        --"%{prj.name}/src/misc/macos/**.m",
+        "%{prj.name}/src/timer/SDL_timer.c",
 
-        --src misc riscos directory
-        "%{prj.name}/src/misc/riscos/**.c",
+        "%{prj.name}/src/timer/windows/SDL_systimer.c",
 
+        "%{prj.name}/src/video/dummy/SDL_nullevents.c",
 
-        --src misc unix directory
-        "%{prj.name}/src/misc/unix/**.c",
+        "%{prj.name}/src/video/dummy/SDL_nullframebuffer.c",
 
-        --src misc vita directory
-        "%{prj.name}/src/misc/vita/**.c",
+        "%{prj.name}/src/video/dummy/SDL_nullvideo.c",
 
+        "%{prj.name}/src/video/SDL_blit.c",
 
-        --src misc windows directory
-        "%{prj.name}/src/misc/windows/**.c",
+        "%{prj.name}/src/video/SDL_blit_0.c",
 
+        "%{prj.name}/src/video/SDL_blit_1.c",
 
-        --src misc winrt directory
-        "%{prj.name}/src/misc/winrt/**.cpp",
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/video/SDL_blit_A.c",
 
+        "%{prj.name}/src/video/SDL_blit_auto.c",
 
+        "%{prj.name}/src/video/SDL_blit_copy.c",
 
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/video/SDL_blit_N.c",
 
---skipping main folder in src as all it is a rc file and cursor file
+        "%{prj.name}/src/video/SDL_blit_slow.c",
 
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/video/SDL_bmp.c",
 
+        "%{prj.name}/src/video/SDL_clipboard.c",
 
+        "%{prj.name}/src/video/SDL_egl.c",
 
---//////////////////////////////////////////////////////
---LOCALE DIRECTORY 
+        "%{prj.name}/src/video/SDL_fillrect.c",
 
+        "%{prj.name}/src/video/SDL_pixels.c",
 
-       --src locale main directory
-       "%{prj.name}/src/locale/**.c",
-       "%{prj.name}/src/locale/**.h",
+        "%{prj.name}/src/video/SDL_rect.c",
 
+        "%{prj.name}/src/video/SDL_RLEaccel.c",
 
-       --src locale android directory
-       "%{prj.name}/src/locale/android/**.c",
+        "%{prj.name}/src/video/SDL_shape.c",
 
-       --src locale dummy directory
-       "%{prj.name}/src/locale/dummy/**.c",
+        "%{prj.name}/src/video/SDL_stretch.c",
 
-       --src locale emscripten directory
-       "%{prj.name}/src/locale/emscripten/**.c",
+        "%{prj.name}/src/video/SDL_surface.c",
 
+        "%{prj.name}/src/video/SDL_video.c",
 
-       --src locale haiku directory
-       "%{prj.name}/src/locale/haiku/**.cc",
+        "%{prj.name}/src/video/SDL_vulkan_utils.c",
 
-       --src locale macos directory
-       --"%{prj.name}/src/locale/macos/**.m",
+        "%{prj.name}/src/video/SDL_yuv.c",
 
-       --src locale n3ds directory
-       "%{prj.name}/src/locale/n3ds/**.c",
+        "%{prj.name}/src/video/windows/SDL_windowsclipboard.c",
 
-       --src locale unix directory
-       "%{prj.name}/src/locale/unix/**.c",
+        "%{prj.name}/src/video/windows/SDL_windowsevents.c",
 
-       --src locale vita directory
-       "%{prj.name}/src/locale/vita/**.c",
+        "%{prj.name}/src/video/windows/SDL_windowsframebuffer.c",
 
+        "%{prj.name}/src/video/windows/SDL_windowskeyboard.c",
 
-       --src locale windows directory
-       "%{prj.name}/src/locale/windows/**.c",
+        "%{prj.name}/src/video/windows/SDL_windowsmessagebox.c",
 
+        "%{prj.name}/src/video/windows/SDL_windowsmodes.c",
 
-       --src locale winrt directory
-       "%{prj.name}/src/locale/winrt/**.c",
---//////////////////////////////////////////////////////
+        "%{prj.name}/src/video/windows/SDL_windowsmouse.c",
 
+        "%{prj.name}/src/video/windows/SDL_windowsopengl.c",
 
+        "%{prj.name}/src/video/windows/SDL_windowsopengles.c",
 
---//////////////////////////////////////////////////////
---LOADSO DIRECTORY 
+        "%{prj.name}/src/video/windows/SDL_windowsshape.c",
 
+        "%{prj.name}/src/video/windows/SDL_windowsvideo.c",
 
-       --src loadso dlopen directory
-       "%{prj.name}/src/loadso/dlopen/**.c",
+        "%{prj.name}/src/video/windows/SDL_windowsvulkan.c",
 
-       --src loadso dummy directory
-       "%{prj.name}/src/loadso/dummy/**.c",
+        "%{prj.name}/src/video/windows/SDL_windowswindow.c",
 
+        "%{prj.name}/src/video/yuv2rgb/yuv_rgb.c",
 
-       --src loadso windows directory
-       "%{prj.name}/src/loadso/windows/**.c",
+        "%{prj.name}/src/dynapi/SDL_dynapi.c"
 
---//////////////////////////////////////////////////////
-
-
-
-
---//////////////////////////////////////////////////////
---LIBM DIRECTORY
-
-       --src libm main directory
-       "%{prj.name}/src/libm/**.c",
-       "%{prj.name}/src/libm/**.h",
---//////////////////////////////////////////////////////
-
-
-
---//////////////////////////////////////////////////////
---JOYSTICK DIRECTORY 
-
-
-       --src joystick main directory
-       "%{prj.name}/src/joystick/**.c",
-       "%{prj.name}/src/joystick/**.h",
-       "%{prj.name}/src/joystick/**.py",
-
-
-       --src joystick android directory
-       "%{prj.name}/src/joystick/android/**.c",
-       "%{prj.name}/src/joystick/android/**.h",
-
-
-       --src joystick apple directory
-       --"%{prj.name}/src/joystick/apple/**.m",
-       "%{prj.name}/src/joystick/apple/**.h",
-
-
-       --src joystick bsd directory
-       "%{prj.name}/src/joystick/bsd/**.c",
-       
-
-       --src joystick darwin directory
-       "%{prj.name}/src/joystick/darwin/**.c",
-       "%{prj.name}/src/joystick/darwin/**.h",
-
-
-       --src joystick dummy directory
-       "%{prj.name}/src/joystick/dummy/**.c",
-
-
-       --src joystick emscripten directory
-       "%{prj.name}/src/joystick/emscripten/**.c",
-       "%{prj.name}/src/joystick/emscripten/**.h",
-
-
-       --src joystick haiku directory
-       "%{prj.name}/src/joystick/haiku/**.cc",
-
-
-       --src joystick hidapi directory
-       "%{prj.name}/src/joystick/hidapi/**.c",
-       "%{prj.name}/src/joystick/hidapi/**.h",
-       "%{prj.name}/src/joystick/hidapi/steam/**.h",
-
-
-       --src joystick linux directory
-       "%{prj.name}/src/joystick/linux/**.c",
-       "%{prj.name}/src/joystick/linux/**.h",
-
-
-       --src joystick n3ds directory
-       "%{prj.name}/src/joystick/n3ds/**.c",
-
-       --src joystick ps2 directory
-       "%{prj.name}/src/joystick/ps2/**.c",
-
-
-       --src joystick psp directory
-       "%{prj.name}/src/joystick/psp/**.c",
-
-
-       --src joystick steam directory
-       "%{prj.name}/src/joystick/steam/**.c",
-       "%{prj.name}/src/joystick/steam/**.h",
-
-
-       --src joystick virtual directory
-       "%{prj.name}/src/joystick/virtual/**.c",
-       "%{prj.name}/src/joystick/virtual/**.h",
-
-
-       --src joystick vita directory
-       "%{prj.name}/src/joystick/vita/**.c",
-
-
-       --src joystick windows directory
-       "%{prj.name}/src/joystick/windows/**.c",
-       "%{prj.name}/src/joystick/windows/**.h",
---//////////////////////////////////////////////////////
-
-
-
---//////////////////////////////////////////////////////
---HIDAPI DIRECTORY 
-
-
-       --src hidapi main directory
-       "%{prj.name}/src/hidapi/**.c",
-       "%{prj.name}/src/hidapi/**.h",
-
-
-       --src hidapi android directory
-       "%{prj.name}/src/hidapi/android/**.cpp",
-       "%{prj.name}/src/hidapi/android/**.h",
-
-
-       --src hidapi android directory
-       "%{prj.name}/src/hidapi/android/**.c",
-       "%{prj.name}/src/hidapi/android/**.h",
-
-       --src hidapi hidapi-subfolder directory
-       "%{prj.name}/src/hidapi/hidapi/**.h",
-       
-
-       --src hidapi hidtest directory
-       "%{prj.name}/src/hidapi/hidtest/**.c",
-
-       --src hidapi ios directory
-       "%{prj.name}/src/hidapi/ios/**.m",
-       
-
-       --src hidapi libusb directory
-       "%{prj.name}/src/hidapi/libusb/**.c",
-       "%{prj.name}/src/hidapi/libusb/**.h",
-
-
-       --src hidapi linux directory
-       "%{prj.name}/src/hidapi/linux/**.c",
-
-       --src hidapi m4 directory
-       "%{prj.name}/src/hidapi/m4/**.m4",
-
-       --src hidapi mac directory
-       "%{prj.name}/src/hidapi/mac/**.c",
-       "%{prj.name}/src/hidapi/mac/**.h",
-
-       --src hidapi testgui directory
-       "%{prj.name}/src/hidapi/testgui/**.cpp",
-       "%{prj.name}/src/hidapi/testgui/**.h",
-
-
-       --src hidapi windows directory
-       "%{prj.name}/src/hidapi/windows/**.c",
-       "%{prj.name}/src/hidapi/windows/pp_data_dump/**.c",
-       "%{prj.name}/src/hidapi/windows/**.h",
---//////////////////////////////////////////////////////
-
-
-
-
---//////////////////////////////////////////////////////
---HAPTIC DIRECTORY 
-
-        --src haptic main directory
-       "%{prj.name}/src/haptic/**.c",
-       "%{prj.name}/src/haptic/**.h",
-
-
-       --src haptic android directory
-       "%{prj.name}/src/haptic/android/**.c",
-       "%{prj.name}/src/haptic/android/**.h",
-
-
-       --src haptic darwin directory
-       "%{prj.name}/src/haptic/darwin/**.c",
-       "%{prj.name}/src/haptic/darwin/**.h",
-
-
-       --src haptic dummy directory
-       "%{prj.name}/src/haptic/dummy/**.c",
-
-
-       --src haptic linux directory
-       "%{prj.name}/src/haptic/linux/**.c",
-       
-
-       --src haptic windows directory
-       "%{prj.name}/src/haptic/windows/**.c",
-       "%{prj.name}/src/haptic/windows/**.h",
---//////////////////////////////////////////////////////
-
-
-
-
---//////////////////////////////////////////////////////
---FILESYSTEM DIRECTORY
-
-       --src filesystem android directory
-       "%{prj.name}/src/filesystem/android/**.c",
-       
-
-       --src filesystem cocoa directory
-       --"%{prj.name}/src/filesystem/cocoa/**.m",
-
-
-       --src filesystem dummy directory
-       "%{prj.name}/src/filesystem/dummy/**.c",
-       
-
-       --src filesystem emscripten directory
-       "%{prj.name}/src/filesystem/emscripten/**.c",
-       
-
-       --src filesystem gdk directory
-       "%{prj.name}/src/filesystem/gdk/**.cpp",
-       
-
-       --src filesystem haiku directory
-       "%{prj.name}/src/filesystem/haiku/**.cc",
-       
-
-       --src filesystem n3ds directory
-       "%{prj.name}/src/filesystem/n3ds/**.c",
-       
-
-       --src filesystem ps2 directory
-       "%{prj.name}/src/filesystem/ps2/**.c",
-       
-       
-       --src filesystem psp directory
-       "%{prj.name}/src/filesystem/psp/**.c",
-       
-
-       --src filesystem riscos directory
-       "%{prj.name}/src/filesystem/riscos/**.c",
-       
-
-       --src filesystem unix directory
-       "%{prj.name}/src/filesystem/unix/**.c",
-     
-
-       --src filesystem vita directory
-       "%{prj.name}/src/filesystem/vita/**.c",
-       
-
-       --src filesystem windows directory
-       "%{prj.name}/src/filesystem/windows/**.c",
-       
-
-       --src filesystem winrt directory
-       "%{prj.name}/src/filesystem/winrt/**.cpp",
-       
---//////////////////////////////////////////////////////
-
-
---//////////////////////////////////////////////////////
---FILE DIRECTORY
-
-
-        --src file main directory
-       "%{prj.name}/src/file/**.c",
-
-
-       --src file cocoa directory
-       --"%{prj.name}/src/file/cocoa/.m",
-       "%{prj.name}/src/file/cocoa/**.h",
-
-
-       --src file n3ds directory
-       "%{prj.name}/src/file/n3ds/**.c",
-       "%{prj.name}/src/file/n3ds/**.h",
---//////////////////////////////////////////////////////
-
-
-
-
---//////////////////////////////////////////////////////
---EVENTS DIRECTORY
-
-       --src events main directory
-       "%{prj.name}/src/events/**.c",
-       "%{prj.name}/src/events/**.h",
-
---//////////////////////////////////////////////////////   
-
-
---//////////////////////////////////////////////////////
---DYNAPI DIRECTORY
-
-       --src dynapi main directory
-       "%{prj.name}/src/dynapi/**.c",
-       "%{prj.name}/src/dynapi/**.h",
-       "%{prj.name}/src/dynapi/**.py",
-       "%{prj.name}/src/dynapi/**.sym",
-
---//////////////////////////////////////////////////////   
-
-
---//////////////////////////////////////////////////////
---CPUINFO DIRECTORY
-
-       --src cpuinfo main directory
-       "%{prj.name}/src/cpuinfo/**.c",
-
-
---////////////////////////////////////////////////////// 
-
-
---//////////////////////////////////////////////////////
---CORE DIRECTORY (NOTE: ALSO INCLUDES PRECOMPILED HEADER FILE)
-
-       --src core main directory
-       "%{prj.name}/src/core/**.c",
-
-
-       --src core android directory
-       "%{prj.name}/src/core/android/**.c",
-       "%{prj.name}/src/core/android/**.h",
-
-
-       --src core freebsd directory
-       "%{prj.name}/src/core/freebsd/**.c",
-       "%{prj.name}/src/core/freebsd/**.h",
-
-       --src core gdk directory
-       "%{prj.name}/src/core/gdk/**.cpp",
-       "%{prj.name}/src/core/gdk/**.h",
-
-
-       --src core haiku directory
-       "%{prj.name}/src/core/haiku/**.cc",
-       "%{prj.name}/src/core/haiku/**.h",
-
-       --src core linux directory
-       "%{prj.name}/src/core/linux/**.c",
-       "%{prj.name}/src/core/linux/**.h",
-
-
-       --src core n3ds directory
-       "%{prj.name}/src/core/n3ds/**.c",
-       
-
-       --src core ngage directory
-       "%{prj.name}/src/core/ngage/**.cpp",
-       
-
-       --src core openbsd directory
-       "%{prj.name}/src/core/openbsd/**.c",
-       "%{prj.name}/src/core/openbsd/**.h", 
-
-
-       --src core ps2 directory
-       "%{prj.name}/src/core/ps2/**.c",
-       
-
-        --src core psp directory
-       "%{prj.name}/src/core/psp/**.c",
-       
-
-       --src core unix directory
-       "%{prj.name}/src/core/unix/**.c",
-       "%{prj.name}/src/core/unix/**.h",
-
-       --src core windows directory
-       "%{prj.name}/src/core/windows/**.c",
-       "%{prj.name}/src/core/windows/**.cpp",
-       "%{prj.name}/src/core/windows/**.h",
-
-       --src core winrt directory 
-       "%{prj.name}/src/core/winrt/**.cpp",
-       "%{prj.name}/src/core/winrt/**.h",
-
---//////////////////////////////////////////////////////   
-
-
-
-
---//////////////////////////////////////////////////////   
---AUDIO DIRECTORY
-
-        --src audio main directory
-       "%{prj.name}/src/audio/**.c",
-       "%{prj.name}/src/audio/**.h",
-
-
-       --src audio aaudio directory
-       "%{prj.name}/src/audio/aaudio/**.c",
-       "%{prj.name}/src/audio/aaudio/**.h",
-
-       --src audio alsa directory
-       "%{prj.name}/src/audio/alsa/**.c",
-       "%{prj.name}/src/audio/alsa/**.h",
-
-       --src audio android directory
-       "%{prj.name}/src/audio/android/**.c",
-       "%{prj.name}/src/audio/android/**.h",
-
-
-       --src audio coreaudio directory
-       --"%{prj.name}/src/audio/coreaudio/**.m",
-       "%{prj.name}/src/audio/coreaudio/**.h",
-
-
-       --src audio directsound directory
-       "%{prj.name}/src/audio/directsound/**.c",
-       "%{prj.name}/src/audio/directsound/**.h",
-
-
-       --src audio disk directory
-       "%{prj.name}/src/audio/disk/**.c",
-       "%{prj.name}/src/audio/disk/**.h",
-
-
-       --src audio dsp directory
-       "%{prj.name}/src/audio/dsp/**.c",
-       "%{prj.name}/src/audio/dsp/**.h",
-
-
-       --src audio dummy directory
-       "%{prj.name}/src/audio/dummy/**.c",
-       "%{prj.name}/src/audio/dummy/**.h",
-
-
-       --src audio emscripten directory
-       "%{prj.name}/src/audio/emscripten/**.c",
-       "%{prj.name}/src/audio/emscripten/**.h",
-
-
-       --src audio haiku directory
-       "%{prj.name}/src/audio/haiku/**.cc",
-       "%{prj.name}/src/audio/haiku/**.h",
-
-
-       --src audio jack directory
-       "%{prj.name}/src/audio/jack/**.c",
-       "%{prj.name}/src/audio/jack/**.h",
-
-
-       --src audio n3ds directory
-       "%{prj.name}/src/audio/n3ds/**.c",
-       "%{prj.name}/src/audio/n3ds/**.h",
-
-
-       --src audio netbsd directory
-       "%{prj.name}/src/audio/netbsd/**.c",
-       "%{prj.name}/src/audio/netbsd/**.h",
-
-
-       --src audio aaudio directory
-       "%{prj.name}/src/audio/aaudio/**.c",
-       "%{prj.name}/src/audio/aaudio/**.h",
-
-
-       --src audio openslES directory
-       "%{prj.name}/src/audio/openslES/**.c",
-       "%{prj.name}/src/audio/openslES/**.h",
-
-       --src audio pipewire directory
-       "%{prj.name}/src/audio/pipewire/**.c",
-       "%{prj.name}/src/audio/pipewire/**.h",
-
-
-       --src audio aaudio directory
-       "%{prj.name}/src/audio/aaudio/**.c",
-       "%{prj.name}/src/audio/aaudio/**.h", 
-
-
-       --src audio ps2 directory
-       "%{prj.name}/src/audio/ps2/**.c",
-       "%{prj.name}/src/audio/ps2/**.h",
-
-
-       --src audio psp directory
-       "%{prj.name}/src/audio/psp/**.c",
-       "%{prj.name}/src/audio/psp/**.h",
-
-
-       --src audio pulseaudio directory
-       "%{prj.name}/src/audio/pulseaudio/**.c",
-       "%{prj.name}/src/audio/pulseaudio/**.h",
-
-
-       --src audio qnx directory
-       "%{prj.name}/src/audio/qnx/**.c",
-       "%{prj.name}/src/audio/qnx/**.h",
-
-
-       --src audio sndio directory
-       "%{prj.name}/src/audio/sndio/**.c",
-       "%{prj.name}/src/audio/sndio/**.h",
-
-
-       --src audio vita directory
-       "%{prj.name}/src/audio/vita/**.c",
-       "%{prj.name}/src/audio/vita/**.h",
-
-       --src audio wasapi directory
-       "%{prj.name}/src/audio/wasapi/**.c",
-       "%{prj.name}/src/audio/wasapi/**.cpp",
-       "%{prj.name}/src/audio/wasapi/**.h",
---//////////////////////////////////////////////////////  
-
-
-
---//////////////////////////////////////////////////////  
---ATOMIC DIRECTORY        
-
-
-
-       --src atomic main directory
-       "%{prj.name}/src/atomic/**.c"
 --//////////////////////////////////////////////////////  
 
     }
     
 
-    filter "configurations:Debug"
-        runtime "Debug"
-        symbols "on"
+    defines
+    {
+        "DLL_EXPORT",
+        "NDEBUG",
+        "_WINDOWS",
+        "_VC80_UPGRADE=0x0700"
+    }
+
         
     filter "configurations:Release"
        runtime "Release"
