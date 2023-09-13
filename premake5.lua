@@ -1,387 +1,424 @@
-    project "SDL3" 
-        kind "StaticLib"
-        language "C++"
+project "SDL3" 
+    kind "StaticLib"
+    language "C++"
+    cppdialect "C++20"
+    architecture "x64"
 
-    targetdir ("bin/" ..outputdir.. "/%{prj.name}")
-    objdir ("bin-int/" ..outputdir.. "/%{prj.name}")
+targetdir ("../bin/" ..outputdir.. "/%{prj.name}")
+objdir ("../bin-int/" ..outputdir.. "/%{prj.name}")
 
-    
-    filter "system:windows"
-         systemversion "latest"
-         staticruntime "On"
-         runtime "Release"
+pchheader "SDL_internal.h"
+pchsource "src/SDL_internal.c"
 
-    files
-    {
-        --INCLUDE DIRECTORY
-        "%{prj.name}/include/SDL3/**.h",
+configurations
+{
+    "Debug",
+    "Release"
+}
 
-        --/////////////////////////////////////////////////////
-        --SRC DIRECTORY 
-        "%{prj.name}/src/core/windows/pch.c",
 
-        "%{prj.name}/src/guid.c",
+filter  "system:windows"
+systemversion "latest"
+staticruntime "On"
 
-        "%{prj.name}/src/atomic/atomic.c",
 
-        "%{prj.name}/src/atomic/SDL_spinlock.c",
+files
+{
 
-        "%{prj.name}/src/audio/directsound/SDL_directsound.c",
+--INCLUDE DIRECTORY
+"include/**.h",
+"src/**.h",
 
-        "%{prj.name}/src/audio/disk/SDL_diskaudio.c",
+--/////////////////////////////////////////////////////
+--SRC DIRECTORY 
+"src/SDL_internal.c",
 
-        "%{prj.name}/src/audio/dummy/SDL_dummyaudio.c",
+"src/core/windows/pch.c",
 
-        "%{prj.name}/src/audio/SDL_audio.c",
+"src/SDL_guid.c",
 
-        "%{prj.name}/src/audio/SDL_audiocvt.c",
+"src/atomic/SDL_atomic.c",
 
-        "%{prj.name}/src/audio/SDL_audiodev.c",
+"src/atomic/SDL_spinlock.c",
 
-        "%{prj.name}/src/audio/SDL_audiotypecvt.c",
+"src/audio/directsound/SDL_directsound.c",
 
-        "%{prj.name}/src/audio/SDL_mixer.c",
+"src/audio/disk/SDL_diskaudio.c",
 
-        "%{prj.name}/src/audio/SDL_wave.c",
+"src/audio/dummy/SDL_dummyaudio.c",
 
-        "%{prj.name}/src/audio/wasapi/SDL_wasapi.c",
+"src/audio/SDL_audio.c",
 
-        "%{prj.name}/src/audio/wasapi/SDL_wasapi_win32.c",
+"src/audio/SDL_audiocvt.c",
 
-        "%{prj.name}/src/core/windows/SDL_hid.c",
+"src/audio/SDL_audiodev.c",
 
-        "%{prj.name}/src/core/windows/SDL_immdevice.c",
+"src/audio/SDL_audiotypecvt.c",
 
-        "%{prj.name}/src/core/windows/SDL_windows.c",
+"src/audio/SDL_mixer.c",
 
-        "%{prj.name}/src/core/windows/SDL_xinput.c",
+"src/audio/SDL_wave.c",
 
-        "%{prj.name}/src/cpuinfo/SDL_cpuinfo.c",
+"src/audio/wasapi/SDL_wasapi.c",
 
-        "%{prj.name}/src/events/SDL_clipboardevents.c",
+"src/audio/wasapi/SDL_wasapi_win32.c",
 
-        "%{prj.name}/src/events/SDL_displayevents.c",
+"src/core/windows/SDL_hid.c",
 
-        "%{prj.name}/src/events/SDL_dropevents.c",
+"src/core/windows/SDL_immdevice.c",
 
-        "%{prj.name}/src/events/SDL_events.c",
+"src/core/windows/SDL_windows.c",
 
-        "%{prj.name}/src/events/SDL_keyboard.c",
+"src/core/windows/SDL_xinput.c",
 
-        "%{prj.name}/src/events/SDL_mouse.c",
+"src/cpuinfo/SDL_cpuinfo.c",
 
-        "%{prj.name}/src/events/SDL_quit.c",
+"src/events/SDL_clipboardevents.c",
 
-        "%{prj.name}/src/events/SDL_touch.c",
+"src/events/SDL_displayevents.c",
 
-        "%{prj.name}/src/events/SDL_windowevents.c",
+"src/events/SDL_dropevents.c",
 
-        "%{prj.name}/src/file/SDL_rwops.c",
+"src/events/SDL_events.c",
 
-        "%{prj.name}/src/filesystem/windows/SDL_sysfilesystem.c",
+"src/events/SDL_keyboard.c",
 
-        "%{prj.name}/src/haptic/dummy/SDL_syshaptic.c",
+"src/events/SDL_mouse.c",
 
-        "%{prj.name}/src/haptic/SDL_haptic.c",
+"src/events/SDL_quit.c",
 
-        "%{prj.name}/src/haptic/windows/SDL_dinputhaptic.c",
+"src/events/SDL_touch.c",
 
-        "%{prj.name}/src/haptic/windows/SDL_windowshaptic.c",
+"src/events/SDL_windowevents.c",
 
-        "%{prj.name}/src/haptic/windows/SDL_xinputhaptic.c",
+"src/file/SDL_rwops.c",
 
-        "%{prj.name}/src/hidapi/SDL_hidapi.c",
+"src/filesystem/windows/SDL_sysfilesystem.c",
 
-        "%{prj.name}/src/joystick/controller_type.c",
+"src/haptic/dummy/SDL_syshaptic.c",
 
-        "%{prj.name}/src/joystick/dummy/SDL_sysjoystick.c",
+"src/haptic/SDL_haptic.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapijoystick.c",
+"src/haptic/windows/SDL_dinputhaptic.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_combined.c",
+"src/haptic/windows/SDL_windowshaptic.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_gamecube.c",
+"src/haptic/windows/SDL_xinputhaptic.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_luna.c",
+"src/hidapi/SDL_hidapi.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_ps3.c",
+"src/joystick/controller_type.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_ps4.c",
+"src/joystick/dummy/SDL_sysjoystick.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_ps5.c",
+"src/joystick/hidapi/SDL_hidapijoystick.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_rumble.c",
+"src/joystick/hidapi/SDL_hidapi_combined.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_shield.c",
+"src/joystick/hidapi/SDL_hidapi_gamecube.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_stadia.c",
+"src/joystick/hidapi/SDL_hidapi_luna.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_steam.c",
+"src/joystick/hidapi/SDL_hidapi_ps3.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_switch.c",
+"src/joystick/hidapi/SDL_hidapi_ps4.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_wii.c",
+"src/joystick/hidapi/SDL_hidapi_ps5.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_xbox360.c",
+"src/joystick/hidapi/SDL_hidapi_rumble.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_xbox360w.c",
+"src/joystick/hidapi/SDL_hidapi_shield.c",
 
-        "%{prj.name}/src/joystick/hidapi/SDL_hidapi_xboxone.c",
+"src/joystick/hidapi/SDL_hidapi_stadia.c",
 
-        "%{prj.name}/src/joystick/SDL_gamepad.c",
+"src/joystick/hidapi/SDL_hidapi_steam.c",
 
-        "%{prj.name}/src/joystick/SDL_joystick.c",
+"src/joystick/hidapi/SDL_hidapi_switch.c",
 
-        "%{prj.name}/src/joystick/virtual/SDL_virtualjoystick.c",
+"src/joystick/hidapi/SDL_hidapi_wii.c",
 
-        "%{prj.name}/src/joystick/windows/SDL_dinputjoystick.c",
+"src/joystick/hidapi/SDL_hidapi_xbox360.c",
 
-        "%{prj.name}/src/joystick/windows/SDL_rawinputjoystick.c",
+"src/joystick/hidapi/SDL_hidapi_xbox360w.c",
 
-        "%{prj.name}/src/joystick/windows/SDL_windowsjoystick.c",
+"src/joystick/hidapi/SDL_hidapi_xboxone.c",
 
-        "%{prj.name}/src/joystick/windows/SDL_windows_gaming_input.c",
+"src/joystick/SDL_gamepad.c",
 
-        "%{prj.name}/src/joystick/windows/SDL_xinputjoystick.c",
+"src/joystick/SDL_joystick.c",
 
-        "%{prj.name}/src/libm/e_atan2.c",
+"src/joystick/virtual/SDL_virtualjoystick.c",
 
-        "%{prj.name}/src/libm/e_exp.c",
+"src/joystick/windows/SDL_dinputjoystick.c",
 
-        "%{prj.name}/src/libm/e_fmod.c",
+"src/joystick/windows/SDL_rawinputjoystick.c",
 
-        "%{prj.name}/src/libm/e_log.c",
+"src/joystick/windows/SDL_windowsjoystick.c",
 
-        "%{prj.name}/src/libm/e_log10.c",
+"src/joystick/windows/SDL_windows_gaming_input.c",
 
-        "%{prj.name}/src/libm/e_rem_pio2.c",
+"src/joystick/windows/SDL_xinputjoystick.c",
 
-        "%{prj.name}/src/libm/e_sqrt.c",
+"src/libm/e_atan2.c",
 
-        "%{prj.name}/src/libm/k_cos.c",
+"src/libm/e_exp.c",
 
-        "%{prj.name}/src/libm/k_rem_pio2.c",
+"src/libm/e_fmod.c",
 
-        "%{prj.name}/src/libm/k_sin.c",
+"src/libm/e_log.c",
 
-        "%{prj.name}/src/libm/k_tan.c",
+"src/libm/e_log10.c",
 
-        "%{prj.name}/src/libm/s_atan.c",
+"src/libm/e_rem_pio2.c",
 
-        "%{prj.name}/src/libm/s_copysign.c",
+"src/libm/e_sqrt.c",
 
-        "%{prj.name}/src/libm/s_cos.c",
+"src/libm/k_cos.c",
 
-        "%{prj.name}/src/libm/s_fabs.c",
+"src/libm/k_rem_pio2.c",
 
-        "%{prj.name}/src/libm/s_floor.c",
+"src/libm/k_sin.c",
 
-        "%{prj.name}/src/libm/s_modf.c",
+"src/libm/k_tan.c",
 
-        "%{prj.name}/src/libm/s_scalbn.c",
+"src/libm/s_atan.c",
 
-        "%{prj.name}/src/libm/s_sin.c",
+"src/libm/s_copysign.c",
 
-        "%{prj.name}/src/libm/s_tan.c",
+"src/libm/s_cos.c",
 
-        "%{prj.name}/src/loadso/windows/SDL_sysloadso.c",
+"src/libm/s_fabs.c",
 
-        "%{prj.name}/src/locale/SDL_locale.c",
+"src/libm/s_floor.c",
 
-        "%{prj.name}/src/locale/windows/SDL_syslocale.c",
+"src/libm/s_modf.c",
 
-        "%{prj.name}/src/misc/SDL_url.c",
+"src/libm/s_scalbn.c",
 
-        "%{prj.name}/src/power/SDL_power.c",
+"src/libm/s_sin.c",
 
-        "%{prj.name}/src/power/windows/SDL_syspower.c",
+"src/libm/s_tan.c",
 
-        "%{prj.name}/src/render/direct3d11/SDL_shaders_d3d11.c",
+"src/loadso/windows/SDL_sysloadso.c",
 
-        "%{prj.name}/src/render/direct3d11/SDL_render_d3d11.c",
+"src/locale/SDL_locale.c",
 
-        "%{prj.name}/src/render/direct3d12/SDL_shaders_d3d12.c",
+"src/locale/windows/SDL_syslocale.c",
 
-        "%{prj.name}/src/render/direct3d12/SDL_render_d3d12.c",
+"src/misc/SDL_url.c",
 
-        "%{prj.name}/src/render/direct3d/SDL_render_d3d.c",
+"src/power/SDL_power.c",
 
-        "%{prj.name}/src/render/direct3d11/SDL_shaders_d3d.c",
+"src/power/windows/SDL_syspower.c",
 
-        "%{prj.name}/src/render/opengl/SDL_render_gl.c",
+"src/render/direct3d11/SDL_shaders_d3d11.c",
 
-        "%{prj.name}/src/render/opengl/SDL_shaders_gl.c",
+"src/render/direct3d11/SDL_render_d3d11.c",
 
-        "%{prj.name}/src/render/opengles2/SDL_render_gles2.c",
+"src/render/direct3d12/SDL_shaders_d3d12.c",
 
-        "%{prj.name}/src/render/SDL_d3dmath.c",
+"src/render/direct3d12/SDL_render_d3d12.c",
 
-        "%{prj.name}/src/render/SDL_render.c",
+"src/render/direct3d/SDL_render_d3d.c",
 
-        "%{prj.name}/src/render/software/SDL_blendfillrect.c",
+"src/render/direct3d/SDL_shaders_d3d.c",
 
-        "%{prj.name}/src/render/software/SDL_blendline.c",
+"src/render/opengl/SDL_render_gl.c",
 
-        "%{prj.name}/src/render/software/SDL_blendpoint.c",
+"src/render/opengl/SDL_shaders_gl.c",
 
-        "%{prj.name}/src/render/software/SDL_drawline.c",
+"src/render/opengles2/SDL_render_gles2.c",
 
-        "%{prj.name}/src/render/software/SDL_drawpoint.c",
+"src/render/SDL_d3dmath.c",
 
-        "%{prj.name}/src/render/software/SDL_render_sw.c",
+"src/render/SDL_render.c",
 
-        "%{prj.name}/src/render/software/SDL_rotate.c",
+"src/render/software/SDL_blendfillrect.c",
 
-        "%{prj.name}/src/render/software/SDL_triangle.c",
+"src/render/software/SDL_blendline.c",
 
-        "%{prj.name}/src/SDL.c",
+"src/render/software/SDL_blendpoint.c",
 
-        "%{prj.name}/src/SDL_assert.c",
+"src/render/software/SDL_drawline.c",
 
-        "%{prj.name}/src/SDL_list.c",
+"src/render/software/SDL_drawpoint.c",
 
-        "%{prj.name}/src/SDL_hints.c",
+"src/render/software/SDL_render_sw.c",
 
-        "%{prj.name}/src/SDL_log.c",
+"src/render/software/SDL_rotate.c",
 
-        "%{prj.name}/src/sensor/dummy/dummysensor.c",
+"src/render/software/SDL_triangle.c",
 
-        "%{prj.name}/src/sensor/SDL_sensor.c",
+"src/SDL.c",
 
-        "%{prj.name}/src/stdlib/SDL_crc16.c",
+"src/SDL_assert.c",
 
-        "%{prj.name}/src/stdlib/SDL_crc32.c",
+"src/SDL_list.c",
 
-        "%{prj.name}/src/stdlib/SDL_getenv.c",
+"src/SDL_hints.c",
 
-        "%{prj.name}/src/stdlib/SDL_iconv.c",
+"src/SDL_log.c",
 
-        "%{prj.name}/src/stdlib/SDL_malloc.c",
+"src/sensor/dummy/SDL_dummysensor.c",
 
-        "%{prj.name}/src/stdlib/SDL_mslibc.c",
+"src/sensor/SDL_sensor.c",
 
-        "%{prj.name}/src/stdlib/SDL_qsort.c",
+"src/stdlib/SDL_crc16.c",
 
-        "%{prj.name}/src/stdlib/SDL_stdlib.c",
+"src/stdlib/SDL_crc32.c",
 
-        "%{prj.name}/src/stdlib/SDL_string.c",
+"src/stdlib/SDL_getenv.c",
 
-        "%{prj.name}/src/stdlib/SDL_strtokr.c",
+"src/stdlib/SDL_iconv.c",
 
-        "%{prj.name}/src/thread/generic/SDL_syscond.c",
+"src/stdlib/SDL_malloc.c",
 
-        "%{prj.name}/src/thread/generic/SDL_sysrwlock.c",
+"src/stdlib/SDL_mslibc.c",
 
-        "%{prj.name}/src/thread/SDL_thread.c",
+"src/stdlib/SDL_qsort.c",
 
-        "%{prj.name}/src/thread/windows/SDL_syscond_cv.c",
+"src/stdlib/SDL_stdlib.c",
 
-        "%{prj.name}/src/thread/windows/SDL_sysmutex.c",
+"src/stdlib/SDL_string.c",
 
-        "%{prj.name}/src/thread/windows/SDL_sysrwlock_srw.c",
+"src/stdlib/SDL_strtokr.c",
 
-        "%{prj.name}/src/thread/windows/SDL_syssem.c",
+"src/thread/generic/SDL_syscond.c",
 
-        "%{prj.name}/src/thread/windows/SDL_systhread.c",
+"src/thread/generic/SDL_sysrwlock.c",
 
-        "%{prj.name}/src/thread/windows/SDL_systls.c",
+"src/thread/SDL_thread.c",
 
-        "%{prj.name}/src/timer/SDL_timer.c",
+"src/thread/windows/SDL_syscond_cv.c",
 
-        "%{prj.name}/src/timer/windows/SDL_systimer.c",
+"src/thread/windows/SDL_sysmutex.c",
 
-        "%{prj.name}/src/video/dummy/SDL_nullevents.c",
+"src/thread/windows/SDL_sysrwlock_srw.c",
 
-        "%{prj.name}/src/video/dummy/SDL_nullframebuffer.c",
+"src/thread/windows/SDL_syssem.c",
 
-        "%{prj.name}/src/video/dummy/SDL_nullvideo.c",
+"src/thread/windows/SDL_systhread.c",
 
-        "%{prj.name}/src/video/SDL_blit.c",
+"src/thread/windows/SDL_systls.c",
 
-        "%{prj.name}/src/video/SDL_blit_0.c",
+"src/timer/SDL_timer.c",
 
-        "%{prj.name}/src/video/SDL_blit_1.c",
+"src/timer/windows/SDL_systimer.c",
 
-        "%{prj.name}/src/video/SDL_blit_A.c",
+"src/video/dummy/SDL_nullevents.c",
 
-        "%{prj.name}/src/video/SDL_blit_auto.c",
+"src/video/dummy/SDL_nullframebuffer.c",
 
-        "%{prj.name}/src/video/SDL_blit_copy.c",
+"src/video/dummy/SDL_nullvideo.c",
 
-        "%{prj.name}/src/video/SDL_blit_N.c",
+"src/video/SDL_blit.c",
 
-        "%{prj.name}/src/video/SDL_blit_slow.c",
+"src/video/SDL_blit_0.c",
 
-        "%{prj.name}/src/video/SDL_bmp.c",
+"src/video/SDL_blit_1.c",
 
-        "%{prj.name}/src/video/SDL_clipboard.c",
+"src/video/SDL_blit_A.c",
 
-        "%{prj.name}/src/video/SDL_egl.c",
+"src/video/SDL_blit_auto.c",
 
-        "%{prj.name}/src/video/SDL_fillrect.c",
+"src/video/SDL_blit_copy.c",
 
-        "%{prj.name}/src/video/SDL_pixels.c",
+"src/video/SDL_blit_N.c",
 
-        "%{prj.name}/src/video/SDL_rect.c",
+"src/video/SDL_blit_slow.c",
 
-        "%{prj.name}/src/video/SDL_RLEaccel.c",
+"src/video/SDL_bmp.c",
 
-        "%{prj.name}/src/video/SDL_shape.c",
+"src/video/SDL_clipboard.c",
 
-        "%{prj.name}/src/video/SDL_stretch.c",
+"src/video/SDL_egl.c",
 
-        "%{prj.name}/src/video/SDL_surface.c",
+"src/video/SDL_fillrect.c",
 
-        "%{prj.name}/src/video/SDL_video.c",
+"src/video/SDL_pixels.c",
 
-        "%{prj.name}/src/video/SDL_vulkan_utils.c",
+"src/video/SDL_rect.c",
 
-        "%{prj.name}/src/video/SDL_yuv.c",
+"src/video/SDL_RLEaccel.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsclipboard.c",
+"src/video/SDL_shape.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsevents.c",
+"src/video/SDL_stretch.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsframebuffer.c",
+"src/video/SDL_surface.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowskeyboard.c",
+"src/video/SDL_video.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsmessagebox.c",
+"src/video/SDL_vulkan_utils.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsmodes.c",
+"src/video/SDL_yuv.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsmouse.c",
+"src/video/windows/SDL_windowsclipboard.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsopengl.c",
+"src/video/windows/SDL_windowsevents.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsopengles.c",
+"src/video/windows/SDL_windowsframebuffer.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsshape.c",
+"src/video/windows/SDL_windowskeyboard.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsvideo.c",
+"src/video/windows/SDL_windowsmessagebox.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowsvulkan.c",
+"src/video/windows/SDL_windowsmodes.c",
 
-        "%{prj.name}/src/video/windows/SDL_windowswindow.c",
+"src/video/windows/SDL_windowsmouse.c",
 
-        "%{prj.name}/src/video/yuv2rgb/yuv_rgb.c",
+"src/video/windows/SDL_windowsopengl.c",
 
-        "%{prj.name}/src/dynapi/SDL_dynapi.c"
+"src/video/windows/SDL_windowsopengles.c",
 
---//////////////////////////////////////////////////////  
+"src/video/windows/SDL_windowsshape.c",
 
-    }
-    
+"src/video/windows/SDL_windowsvideo.c",
 
-    defines
-    {
-        "DLL_EXPORT",
-        "NDEBUG",
-        "_WINDOWS",
-        "_VC80_UPGRADE=0x0700"
-    }
+"src/video/windows/SDL_windowsvulkan.c",
 
-        
-    filter "configurations:Release"
-       runtime "Release"
-       optimize "on"
+"src/video/windows/SDL_windowswindow.c",
+
+"src/video/yuv2rgb/yuv_rgb.c",
+
+"src/dynapi/SDL_dynapi.c"
+
+}
+
+
+
+defines
+{
+"SDL_STATIC_LIB",
+"NDEBUG",
+"_WINDOWS",
+"_VC80_UPGRADE=0x0700"
+}
+
+links
+{
+"winmm.lib",
+"imm32.lib",
+"version.lib",
+"setupapi.lib"
+}
+
+
+includedirs
+{
+"include",
+"include/SDL3",
+"include/build_config",
+"src/"
+}
+
+filter "configurations:Debug"
+systemversion "latest"
+buildoptions "/MTd"
+symbols "On"
+
+
+filter "configurations:Release"
+systemversion "latest"
+buildoptions "/MT"
+optimize "On"
