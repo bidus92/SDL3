@@ -29,7 +29,7 @@ files
 
 --/////////////////////////////////////////////////////
 --SRC DIRECTORY 
-"src/SDL_internal.c",
+--"src/SDL_internal.c",
 
 "src/core/windows/pch.c",
 
