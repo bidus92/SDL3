@@ -1,9 +1,9 @@
 build/
 build-*/
 
-bin/
+bin
 
-bin-int/
+bin-int
 
 !build-scripts/
 buildbot/
