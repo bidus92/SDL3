@@ -57,7 +57,7 @@
 #  ifdef DLL_EXPORT
 #   define DECLSPEC __declspec(dllexport)
 #  else
-#   define DECLSPEC
+#   define  DECLSPEC
 #  endif
 # else
 #  if defined(__GNUC__) && __GNUC__ >= 4

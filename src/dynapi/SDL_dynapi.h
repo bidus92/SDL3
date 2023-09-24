@@ -36,6 +36,7 @@
    not without this feature. Think hard before turning it off.
 */
 #ifdef SDL_DYNAMIC_API /* Tried to force it on the command line? */
+//#define SDL_DYNAMIC_API 0
 #error Nope, you have to edit this file to force this off.
 #endif
 
