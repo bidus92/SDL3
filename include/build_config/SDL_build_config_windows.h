@@ -18,6 +18,7 @@
      misrepresented as being the original software.
   3. This notice may not be removed or altered from any source distribution.
 */
+//#define HAVE_LIBC 1
 
 #ifndef SDL_build_config_windows_h_
 #define SDL_build_config_windows_h_
