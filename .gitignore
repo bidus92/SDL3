@@ -33,7 +33,6 @@ __pycache__
 
 # for CMake
 CMakeFiles/
-CMakeCache.txt
 cmake_install.cmake
 cmake_uninstall.cmake
 SDL3ConfigVersion.cmake
